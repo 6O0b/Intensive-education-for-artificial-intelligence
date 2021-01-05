@@ -78,3 +78,17 @@ class DuelingDQN(nn.Module):
         adv = self.fc_adv2(adv)
 
         return val + adv - adv.mean()
+        '''
+        x = F.leaky_relu(self.conv1(x))
+        x = F.leaky_relu(self.conv2(x))
+        x = F.leaky_relu(self.conv3(x))
+        x = x.view(x.size(0), -1)
+
+        val = F.leaky_relu(self.fc_val1(x))
+        val = self.fc_val2(val)
+
+        adv = F.leaky_relu(self.fc_adv1(x))
+        adv = self.fc_adv2(adv)
+
+        return val + adv - adv.mean()
+        '''
